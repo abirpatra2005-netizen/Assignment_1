@@ -1,0 +1,29 @@
+import pandas as pd
+
+# Create DataFrame
+data = {
+    "Student Name": ["Abir", "Rahul", "Priya", "Amit", "Sneha"],
+    "Roll Number": [101, 102, 103, 104, 105],
+    "Marks": [95, 85, 72, 60, 45],
+    "Attendance": [90, 85, 95, 80, 92]
+}
+
+df = pd.DataFrame(data)
+
+# Dynamically calculate Grade
+def calculate_grade(marks):
+    if marks >= 90:
+        return "A"
+    elif marks >= 80:
+        return "B"
+    elif marks >= 70:
+        return "C"
+    elif marks >= 60:
+        return "D"
+    else:
+        return "F"
+
+# Add Grade column
+df["Grade"] = df["Marks"].apply(calculate_grade)
+
+print(df)
